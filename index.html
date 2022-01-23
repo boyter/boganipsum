@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="utf-8">
+    <title>Bogan Ipsum - Get it up ya!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bogan Ipsum Generator">
+</head>
+
+<script>
+var cleanWords = ["Shazza","Bazza","Flanno","VB","Mokkies","Mullet","Holden","Ford","Khe Sanh","Bottlo","Slabs","Smokes","Slaps","Ciggies","Dunny","Mates","ya","gutta","decent nik","Barbie","Booze","G'day","Sickie","Ute","Trackies","Bogan","Dag","Sheila","Wuss","Uluru","Galah","Jackaroo","Dob","Bonza","Cockie","Dinky-di","Ugg","Waratah","Ironman","Ridgy-didge","Bradman","Struth","No dramas","Ace!","Aerial pingpong","Amber fluid","Ambo","Ankle biter","Apples","Arvo","Aussie salute","Avos","Back of Bourke","Bail up","Bail out","Banana bender","Barbie","Barrack","Bathers","Battler","Beauty","Big Smoke","Bikkie","Billabong","Billy","Bingle","Bities","Bitzer","Bizzo","Bloke","Bloody oath!","Blow in the bag","Blowie","Bludger","Blue","Bluey","Slacker","Bodgy","Bog standard","Bogged","Boil-over","Bonzer","Boogie board","Booze bus","Boozer","Bottle-o","His blood's worth bottling","Bounce","Not my bowl of rice","Brass razoo","Brekkie","Brickie","Brisvegas","Brizzie","Brumby","Buck's night","Buckley's chance","Budgie smugglers","Bull bar","Bundy","Bunyip","Bush bash","Bush oyster","Bush telly","Bushie","Bushranger","Butcher","Cab Sav","Cactus mate","Cane toad","Captain Cook","Cark it","Chewie","Chokkie","Chook","Chrissie","Christmas","Chuck a sickie","Chunder","Clacker","Cleanskin","Ten Clicks away","Clucky","Coathanger","Cobber","Cockie","Parma","Coldie","Compo","Cooee","Cracker","Cook","Corker","Counter meal","Boardies","Cranky","Cream","Crook","Cubby house","Cut lunch","Cut lunch commando","Cut snake","Dag","Daks","Damper","Dead horse","Deadset","Dero","Digger","Dill","Fair dinkum","Dinky-di","Dipstick","Divvy van","Dog's balls","Dole bludger","Donger","Doovalacky","Down Under","Drongo","Dropkick","Spit The Dummy","Dunny","Dunny rat","Durry","Esky","Fair dinkum","Fair go","Fairy floss","Feral","Figjam","Fisho","Flake","Lizard drinking","Flick","Fly wire","Aussie Rules Footy","Fossicker","Franger","Freckle","Fremantle Doctor","Freo","Frog in a sock","Fruit loop","Galah","Garbo","Give it a burl","Gobful","Gobsmacked","Going off","Good oil","Good onya","Greenie","Grog","Grouse","Grundies","Gyno","Holy dooley!","Hoon","Hooroo","Hottie","Icy pole","Jillaroo","Joey","Jug","Jumbuck","Kelpie","Kero","Kindie","Knock","Larrikin","Lippy","Longneck","Lurk","Maccas","Mate","Mate's rate","Metho","Mickey Mouse Mate","Middy","Milk bar","Mongrel","Moolah","Mozzie","Muster","Nipper","No-hoper","Ocker","Offsider","Oldies","Op shop","Outback","Paddock","Pash","Pav","Piker","Pint","Plonk","Pokies","Porky","Postie","Pot","Pozzy","Prezzy","Quid","Rack off","Rage on","Rapt","Ratbag","Reckon","Rego","Relo","Ridgy-didge","Rip snorter","Ripper","Road train","Roadie","Rock up","Rollie","Roo","Roo bar","Ropeable","Rort","Rotten","Rubbish","Sanger","Schooner","Scratchy","Two pot screamer","Servo","Shag on a rock","Swagger","Sheila","Shonky","Your Shout","Show pony","Sickie","Skite","Slab","Sleepout","Smoko","Snag","Sook","Spag bol","Spewin'","Pretty spiffy","Spit the dummy","Squizz","Stickybeak","Stoked","Stonkered","Strewth","Strides","Stubby","Stubby holder","Sunnies","Swag","Thingo","Thongs","Throw-down","Tinny","Too right!","Top End","Trackie dacks","Trackies","Troppo","Truckie","True blue","Tucker","Tucker-bag","Turps","Hit the turps","Get on the beers","Two up","Ugg boots","Ute","Vee dub","Veg out","Vinnie's","Waggin' school","Gone Walkabout","Whinge","Wobbly","Wuss","Yabber","Yakka","Chuck a yewy","Yobbo"];
+var fillers = ["and","to","also","with","where","when","how","mate","my","flamin","bloody","heaps","no dramas","no worries","piece of piss"];
+var phrases = ["Watch out for the","It'll be","Lets get some","Shazza got us some","Lets throw a","He's got a massive","He hasn't got a","Built like a","We're going","Trent from punchy","Get a dog up ya","As busy as a","Grab us a","Come a","Mad as a","As dry as a","As stands out like","As cunning as a","Flat out like a","As cross as a","Gutful of","She'll be right","You little ripper","Stands out like a","She'll be right"];
+var words = ["Shazza","Bazza","Flanno","VB","Mokkies","Mullet","Holden","Ford","Khe Sanh","Bottlo","Slabs","Smokes","Slaps","Ciggies","Dunny","Mates","ya","gutta","decent nik","Barbie","Booze","G'day","Sickie","Ute","Trackies","Bogan","Dag","Sheila","Wuss","Uluru","Galah","Jackaroo","Dob","Bonza","Cockie","Dinky-di","Ugg","Waratah","Ironman","Ridgy-didge","Bradman","Struth","No dramas","Ace!","Aerial pingpong","Amber fluid","Ambo","Ankle biter","Apples","Arvo","Aussie salute","Avos","Back of Bourke","Bail up","Bail out","Banana bender","Barbie","Barrack","Bastard","Bathers","Battler","Beauty","Big Smoke","Bikkie","Billabong","Billy","Bingle","Bities","Bitzer","Bizzo","Bloke","Bloody oath!","Blow in the bag","Blowie","Bludger","Blue","Bluey","Slacker","Bodgy","Bog standard","Bogged","Boil-over","Bonzer","Boogie board","Booze bus","Boozer","Bored sh*tless","Bottle-o","His blood's worth bottling","Bounce","Not my bowl of rice","Brass razoo","Brekkie","Brick sh*t house","Brickie","Brisvegas","Brizzie","Brumby","Buck's night","Buckley's chance","Budgie smugglers","Bull bar","Bundy","Bunyip","Bush bash","Bush oyster","Bush telly","Bushie","Bushranger","Butcher","Cab Sav","Cactus mate","Cane toad","Captain Cook","Cark it","Cat burying shit","Chewie","Chokkie","Chook","Chrissie","Christmas","Chuck a sickie","Chunder","Clacker","Cleanskin","Ten Clicks away","Clucky","Coathanger","Cobber","Cockie","Parma","Coldie","Compo","Cooee","Cracker","Cook","Corker","Counter meal","Boardies","Crack a fat","Cranky","Cream","Crook","Cubby house","Cut lunch","Cut lunch commando","Cut snake","Dag","Daks","Damper","Dead dingo's donger","Dead horse","Deadset","Dero","Dickhead","Digger","Dill","Fair dinkum","Dinky-di","Dipstick","Divvy van","Dog's balls","Dole bludger","Donger","Doovalacky","Down Under","Drongo","Dropkick","Spit The Dummy","Dunny","Dunny rat","Durry","Esky","Fair dinkum","Fair go","Fairy floss","Feral","Figjam","Fisho","Flake","Lizard drinking","Flick","Fly wire","Aussie Rules Footy","Fossicker","Franger","Freckle","Fremantle Doctor","Freo","Frog in a sock","Fruit loop","Galah","Garbo","Give it a burl","Gobful","Gobsmacked","Going off","Good oil","Good onya","Greenie","Grog","Grouse","Grundies","Gyno","Holy dooley!","Hoon","Hooroo","Hottie","Icy pole","Jillaroo","Joey","Jug","Jumbuck","Kelpie","Kero","Kindie","Knock","Larrikin","Lippy","Longneck","Lurk","Maccas","Mappa Tassie","Mate","Mate's rate","Metho","Mickey Mouse Mate","Middy","Milk bar","Mongrel","Moolah","Mozzie","Muster","Nipper","No-hoper","Ocker","Offsider","Old fella","Oldies","Op shop","Outback","Paddock","Pash","Pav","Perve","Pig's arse","Piker","Pint","Plonk","Pokies","Porky","Postie","Pot","Pozzy","Prezzy","Quid","Rack off","Rage on","Rapt","Ratbag","Reckon","Rego","Relo","Ridgy-didge","Rip snorter","Ripper","Road train","Roadie","Rock up","Rollie","Roo","Roo bar","Ropeable","Rort","Rotten","Rubbish","Sanger","Schooner","Scratchy","Two pot screamer","Servo","Shag on a rock","Swagger","Sheila","Shit house","Shonky","Your Shout","Show pony","Sickie","Skite","Slab","Sleepout","Smoko","Snag","Sook","Spag bol","Spewin'","Pretty spiffy","Spit the dummy","Squizz","Stickybeak","Stoked","Stonkered","Strewth","Strides","Stubby","Stubby holder","Sunnies","Swag","Thingo","Thongs","Throw-down","Tinny","Too right!","Top End","Trackie dacks","Trackies","Troppo","Truckie","True blue","Tucker","Tucker-bag","Turps","Hit the turps","Two up","Ugg boots","Ute","Vee dub","Veg out","Vinnie's","Waggin' school","Gone Walkabout","Whinge","Wobbly","Wuss","Yabber","Yakka","Chuck a yewy","Yobbo"];
+
+function pickRandom(type, lower) {
+    r = Math.min(Math.floor(Math.random() * type.length), type.length - 1)
+    if (lower) {
+        return type[r].toLowerCase()
+    }
+
+    return type[r]
+}
+
+function generateSentence() {
+    return [
+        pickRandom(phrases, false),
+        pickRandom(words, true),
+        pickRandom(fillers, true),
+        pickRandom(phrases, true),
+        pickRandom(words, true),
+    ].join(' ') + '.'
+}
+
+function generateParagraphs() {
+    var arr = [];
+    for (var i = 0; i < 4; i++) {
+        var sentences = (Math.random() * (9 - 4)) + 4;
+        var sentence = [];
+
+        for (var j = 0; j < sentences; j++) {
+            sentence.push(generateSentence()) ;
+        }
+
+        arr.push(sentence.join(' '));
+    }
+
+    return arr.join('<br><br>');
+}
+
+function updateIpsum() {
+    var el = document.getElementById("ipsum");
+    el.innerHTML = generateParagraphs();
+}
+</script>
+
+<style>
+footer { border-top: 0 !important; }
+header { border: 0 !important; }
+:root {
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+    /* font-family: 'Roboto',Helvetica,Sans-Serif; */
+}
+
+:root {
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+    /* font-family: 'Roboto',Helvetica,Sans-Serif; */
+}
+
+body,
+html {
+    padding: 0 0 0 0;
+    margin: 0;
+}
+
+main {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 1em;
+    border-radius: 2px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 400px;
+}
+
+.g {
+    color: green;
+}
+
+header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    padding-top: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+details {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+small.vs {
+    font-size: 0.5em;
+}
+
+li {
+    list-style-type: none;
+}
+
+.result-count {
+    margin-top: 10px;
+}
+
+#results {
+    padding: 0px;
+}
+
+.selected-type {
+    border-bottom: 3px solid #00CCF4;
+}
+
+.header-wrapper {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+.header-search {
+    display: flex;
+    gap: 5px;
+}
+
+.header-details {
+    margin-top: 5px;
+}
+
+.header-type {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 0.5em;
+}
+
+.results-wrapper {
+    display: flex;
+    gap: 3em;
+}
+
+.footer-wrapper {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+.search-header-wrapper {
+    width: 1200px;
+    margin-left: auto;
+    margin-right:auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.search-wrapper {
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    padding: 4em;
+}
+
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+</style>
+<body onload="updateIpsum();">
+    <header>
+         <div class='search-header-wrapper'>
+            <h1>Bogan Ipsum Generator</h1>
+            <h2>She's ridgy didge!</h2>
+        </div>
+    </header>
+
+    <main>
+        <center>
+            <button type="button" onclick="updateIpsum();">Have another crack</button>
+        </center><br>
+        <div id='ipsum'></div>
+    </main>
+
+    <footer>
+        <div class='footer-wrapper'>
+            <p>
+                Created by <a href="http://twitter.com/boyter" target="_blank">@boyter</a><br/>   
+                Powered by ☕ 
+            </p>
+            <small>
+                <i>We acknowledge Aboriginal and Torres Strait Islander peoples as the First Australians and
+                            Traditional Custodians of the lands where we live, learn and work.</i>
+            </small>
+        </div>
+    </footer>
+</body>
+</html>
