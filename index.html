@@ -37,7 +37,7 @@ function generateSentence(moreAussie) {
             pickRandom(phrases.concat(uncleanPhrases), true),
             pickRandom(words.concat(uncleanWords), true),
         ].join(' ')
-        return formatSetence(sentence)
+        return formatSentence(sentence)
     }
 
     sentence = [
@@ -47,7 +47,7 @@ function generateSentence(moreAussie) {
         pickRandom(phrases, true),
         pickRandom(words, true),
     ].join(' ')
-    return formatSetence(sentence)
+    return formatSentence(sentence)
 }
 
 function generateParagraphs(moreAussie) {
