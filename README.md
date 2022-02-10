@@ -1,5 +1,7 @@
 # Bogan Ipusm
 
+[![Scc Count Badge](https://sloc.xyz/github/boyter/boganipsum/)](https://github.com/boyter/boganipsum/)
+
 The new an improved!(?) bogan ipsum because boganipsum.com fell of the face of the earth and this needed to exist again. https://boganipsum.com.au/
 
 Everything is MIT licensed because the library which was used to get the first working version was. I don't really do fancy builds for simple things like this so it's a copy of that turned into old school JS. The library is https://github.com/rvagg/node-boganipsum if you are curious.
