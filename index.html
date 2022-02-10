@@ -67,16 +67,13 @@ function generateParagraphs(moreAussie) {
 }
 
 function formatSentence(sentence) {
-    var uppercasedFirstLetter = sentence.charAt(0).toUpperCase() + sentence.slice(1)
-    return punctuate(uppercasedFirstLetter)
-}
-
-function punctuate(sentence) {
-    var randomNumber = Math.ceil(Math.random() * 10)
-    if (randomNumber <= 8) {
+    var sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1)
+    
+    var r = Math.ceil(Math.random() * 10)
+    if (r <= 8) {
         return sentence + "."
     }
-    if (randomNumber = 9) {
+    if (r = 9) {
         return sentence + "?"
     }
     return sentence + "!"
